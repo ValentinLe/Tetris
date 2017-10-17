@@ -5,6 +5,7 @@ from pions import *
 from board import *
 from interface import *
 from threading import Thread
+import pickle
 
 
 def main(fen,b,p):
@@ -37,7 +38,7 @@ def main(fen,b,p):
         b.L = b.place_piece()
         b.L,cpt = b.delete_ligne_complete()
         p.grille = b.L
-        speed *= 0.975
+        speed *= 0.985
         b.time_sleep = speed
         n = len(b.piece.name_piece.form)
         b.score += level*(10+n) + n + points[cpt]*(level+1)
@@ -61,27 +62,27 @@ def main(fen,b,p):
     save_record(max(p.get_score(),get_record()))
 
 def save_record(record):
-    file = 'sauvegarde.txt'
+    file = 'record.txt'
     try:
-        fileR = open(file,'r')
-        n = int(fileR.read())
+        fileR = open(file,'rb')
+        n = pickle.load(fileR)
         fileR.close()
     except:
-        fileR = open(file,'w')
-        fileR.write(str(0))
+        fileR = open(file,'wb')
+        pickle.dump(0,fileR)
         n = 0
         fileR.close()
     if record > n:
-        fileW = open(file,'w')
-        fileW.write(str(record))
+        fileW = open(file,'wb')
+        pickle.dump(record,fileW)
         fileW.close()
     fileR.close()
 
 def get_record():
-    file = "sauvegarde.txt"
+    file = "record.txt"
     try:
-        fileR = open(file,'r')
-        record = int(fileR.read())
+        fileR = open(file,'rb')
+        record = pickle.load(fileR)
         fileR.close()
     except:
         record = 0
