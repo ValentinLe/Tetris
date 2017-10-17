@@ -79,14 +79,14 @@ class Board:
         return self.L
 
     def ligne_complete(self,i):
-        ''' renvoie true si il n'y a aucune case à la ligne i '''
+        ''' renvoie true si il n'y a aucune case de libre à la ligne i '''
         for j in range(self.sizeX):
             if self.L[i][j] == None:
                 return False
         return True
 
     def copie_liste(self,liste):
-        ''' renvoie une capie d'une liste '''
+        ''' renvoie une copie d'une liste '''
         l = []
         for i in range(len(liste)):
             l.append([])
@@ -126,9 +126,9 @@ class Board:
             elif L2[k][1] + self.piece.j == lenX+1:
                 decal = -2
             if self.piece.i + L2[k][0] in range(len(self.L)) and self.piece.j + L2[k][1] in range(lenX) and self.L[self.piece.i + L2[k][0]][self.piece.j + L2[k][1]] != None:
-                if L2[k][1] < 0:
+                if L2[k][1] < 0 and L2[k][0] == 0:
                     decal += 1
-                elif L2[k][1] > 0:
+                elif L2[k][1] > 0 and L2[k][0] == 0:
                     decal -= 1
                 
         if decal != 0:
