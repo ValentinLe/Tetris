@@ -5,10 +5,12 @@ from main import *
 from tkinter.filedialog import *
 
 class Interface:
-    def __init__(self,fen,sizeX,sizeY,b):
-        self.sizeX = sizeX
-        self.sizeY = sizeY
+    def __init__(self,fen,b):
+        self.fen = fen
         self.b = b
+        
+        self.sizeX = b.sizeX
+        self.sizeY = b.sizeY
         self.grille = self.b.tempL
         self.rectangle_last_piece = []
         self.can_move = True
@@ -17,7 +19,6 @@ class Interface:
                               'yellow':'#e6e600','orange':'#ff751a','blue':'#0047b3',
                               'red':'#ff1c1c','green':'#35e701'}
         
-        self.fen = fen
         self.fen.wm_title("Tetris")
 
         cdg = Frame(self.fen)

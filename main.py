@@ -93,7 +93,7 @@ if __name__ == "__main__":
     fen = Tk()
     pieces = [T,Barre,Carre,L,L_]
     b = Board(10,24,Piece(Carre),Piece(choice(pieces)),0)
-    p = Interface(fen,b.sizeX,b.sizeY,b)
+    p = Interface(fen,b)
     mon_thread=Thread(target=main,args=(fen,b,p))
     mon_thread.start()
     fen.mainloop()
