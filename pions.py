@@ -24,15 +24,16 @@ class Piece:
 
     def turn_piece(self):
         '''
-            renvoie les coordonnées vecteurs après la rotation des vecteur de la piece
+            renvoie les coordonnées sous forme de vecteurs après la rotation des vecteurs de la piece
             
-            formule rotation d'un vecteur (x,y) d'un angle phi dans [0,pi] qui donne un veteur (x',y') en multipliant (x,y) par la matrice A :
+            formule rotation d'un vecteur (x,y) d'un angle phi dans [0,pi] qui donne un veteur (x',y') en multipliant (x,y)
+            par la matrice A :
 
                                 A
             [ x' ] = [ cos(phi)  -sin(phi) ] * [ x ]
             [ y' ]   [ sin(phi)   cos(phi) ]   [ y ]
 
-            Dans notre cas phi = pi/2 pour faire une rotation de 90° vers la droite,
+            Dans notre cas phi = -pi/2 pour faire une rotation de 90° vers la droite,
             
             d'où A = [ 0  1 ]
                      [ -1 0 ]
