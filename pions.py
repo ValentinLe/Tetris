@@ -45,9 +45,7 @@ class Piece:
             vect = np.array([[x[0]],[x[1]]])
             res = A.dot(vect) # multiplication de A avec le vecteur
             
-            # traduction en tuple pour notre programme en utilisant le produit scalaire
-            res = res[:,0] # transformation matrice en vecteur
-            res = (np.sum(res*(1,0)),np.sum(res*(0,1))) #produit scalaire
+            res = tuple(res[:,0]) # transformation matrice en vecteur puis en tuple
 
             # ajout du tuple obtenu
             L.append(res)

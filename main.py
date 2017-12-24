@@ -33,8 +33,9 @@ def main(fen,b,p):
             except:
                 return
             p.cv.update()
-            b.piece.i += 1
-            time.sleep(b.time_sleep)
+            if b.down_possible() and b.party_proced:
+                b.piece.i += 1
+                time.sleep(b.time_sleep)
         b.L = b.place_piece()
         b.L,cpt = b.delete_ligne_complete()
         p.grille = b.L
