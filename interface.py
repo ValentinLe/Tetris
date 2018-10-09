@@ -14,7 +14,7 @@ class Interface:
         self.grille = self.b.tempL
         self.rectangle_last_piece = []
         self.can_move = True
-
+        
         self.color = color = {'purple':'#b800e6','cyan':'#00b8e6',
                               'yellow':'#e6e600','orange':'#ff751a','blue':'#0047b3',
                               'red':'#ff1c1c','green':'#35e701'}
@@ -165,4 +165,4 @@ class Interface:
         save_record(max(self.get_score(),get_record()))
         self.fen.quit()
         self.fen.destroy()
-        
+

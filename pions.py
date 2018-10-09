@@ -1,6 +1,4 @@
 
-import numpy as np
-
 class Piece:
     def __init__(self,name_piece,i = 1 ,j = 4):
         '''
@@ -10,7 +8,7 @@ class Piece:
         '''
         self.name_piece = name_piece()
         self.i = i
-        self. j = j
+        self.j = j
 
     def piece_form(self):
         '''
@@ -40,15 +38,8 @@ class Piece:
         '''
         l = self.name_piece.form
         L = []
-        A = np.array([[0,1],[-1,0]])
         for x in l:
-            vect = np.array([[x[0]],[x[1]]])
-            res = A.dot(vect) # multiplication de A avec le vecteur
-            
-            res = tuple(res[:,0]) # transformation matrice en vecteur puis en tuple
-
-            # ajout du tuple obtenu
-            L.append(res)
+            L.append((x[1], -x[0]))
         return L
 
 
@@ -113,6 +104,6 @@ class Case:
         '''
         self.color = color
         self.i = i
-        self. j = j
+        self.j = j
 
 
